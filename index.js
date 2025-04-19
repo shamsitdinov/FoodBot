@@ -4,7 +4,7 @@ import 'dotenv/config'
 // import { keyboard } from './node_modules/telegraf/src/markup';
 // import { callbackQuery } from './node_modules/telegraf/src/filters';
 
-const bot = new Telegraf(process.env.TELEGRAM_TOKEN, { polling: true })
+const bot = new Telegraf(process.env.TELEGRAM_TOKEN)
 
 // bot.help((ctx) => ctx.reply('Send me a sticker'))
 // bot.command('about',ctx=>ctx.reply('About Us'))
@@ -35,4 +35,4 @@ bot.on('callback_query', ctx => {
 //     console.log(ctx.update.message.text)
 // })
 
-bot.launch() 
+bot.launch({ dropPendingUpdates: true }) 
